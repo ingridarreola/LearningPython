@@ -70,3 +70,34 @@ ll.insert_beginning(70)
 ll.insert_beginning(5675)
 ll.insert_beginning(90)
 print(ll.stringify_list())
+
+#Nice! Now we have a bunch of helpful LinkedList methods under our belt.
+# The final use case we mentioned was the ability to remove an arbitrary node with a particular value. This is slightly more complex, since a couple of special cases need to be handled.
+
+# [1] At the bottom of script.py, add a .remove_node() method to LinkedList. It should take value_to_remove as a parameter. We’ll be looking for a node with this value to remove.
+# In the body of .remove_node(), set a new variable current_node equal to the head_node of the list.
+# We’ll use current_node to keep track of the node we are currently looking at as we traverse the list.
+def remove_node(self, value_to_remove):
+  current_node = self.get_head_node()
+# [2] Still inside the method body, use an if statement to check whether the list’s head_node has a value that is the same as value_to_remove. If it does, we’ve found the node we’re looking for and we need to adjust the list’s pointer to head_node. Inside the if clause, set self.head_node equal to the second node in the linked list.
+  if current_node.get_value() == value_to_remove:
+    self.head_node = current_node.get_next_node()
+# [3] Add an else clause. Within the else clause: **Traverse the list until current_node.get_next_node().get_value() is the value_to_remove. **(Just like with stringify_list you can traverse the list using a while loop that checks whether current_node exists.)
+# ** When value_to_remove is found, adjust the links in the list so that current_node is linked to next_node.get_next_node(). 
+# ** After you remove the node with a value of value_to_remove, make sure to set current_node to None so that you exit the loop.
+  else:
+    while current_node: #traverse the list with while loop that checks whether current_node exists
+      next_node = current_node.get_next_node()
+      if next_node.get_value() == value_to_remove: #when value_to_remove is found, adjust the links in list so current_node is linked
+        current_node.set_next_node(next_node.get_next_node())
+        current_node = None #after removing the node with a value of value_to_remove, set current_node to None to exit the loop
+      else:
+        current_node = next_node
+
+# Here are some ideas:
+
+#Create a few nodes and adding them to a new linked list
+#Print your linked list out by using your stringify_list() method
+#Remove your linked list’s head node
+#Print your list again — was your original head node removed?
+#So far you’ve built a method to remove the first occurrence of a given value. How do you think you would remove all nodes that have a specific value? Try building a method to do that!
