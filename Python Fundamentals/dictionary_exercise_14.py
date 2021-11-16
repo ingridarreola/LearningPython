@@ -2,6 +2,7 @@
 
 #### LESSON  
 # Creating a new dictionary and using .pop() to remove things from the original dictionary and placing it into an empty dictionary with the following syntax ----> new_dictionary["new key"] = old_dictionary.pop("old key")
+# dictionary_name.items() will print out the keys & values in that dictionary. A for loop can iterate through these things in the dictionary
 
 ###  [Step 0]
 # we start with a dictionary
