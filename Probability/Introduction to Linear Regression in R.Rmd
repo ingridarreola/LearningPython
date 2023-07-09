@@ -9,8 +9,8 @@ library(dplyr)
 library(ggplot2)
 
 # load data
-conversion <- read.csv('conversion.csv', header= T)
-advertising <- read.csv('advertising.csv', header= T)
+conversion <- read.csv("conversion.csv", header= T)
+advertising <- read.csv("advertising.csv", header= T)
 ```
 
 
